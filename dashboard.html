@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARIA TIKTOK LIVE BOT - Dashboard</title>
+    
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/tables.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/notifications.css">
+    <link rel="stylesheet" href="css/badges.css">
+    <link rel="stylesheet" href="css/charts.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/theme-dark.css">
+    <link rel="stylesheet" href="css/theme-light.css">
+    
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <div class="app-container">
+        
+     <!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar__header">
+        <a href="#" class="sidebar__logo" data-section="dashboard-section">
+            MARIA TIKTOK LIVE BOT
+        </a>
+        <button class="sidebar__collapse-btn" id="sidebar-collapse-btn" aria-label="Collapse sidebar">
+            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+    </div>
+
+    <nav class="sidebar__nav">
+        <ul class="sidebar__menu">
+            
+            <li class="sidebar__item active" data-section="dashboard-section">
+                <a href="#" class="sidebar__link">
+                    <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    <span class="link-text">Dashboard</span>
+                </a>
+            </li>
+
+            <li class="sidebar__item">
+                <span class="sidebar__link sidebar__link--header">
+                    <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                    <span class="link-text">LIVE</span>
+                </span>
+                <ul class="sidebar__submenu">
+                    <li class="sidebar__item" data-section="live-section">
+                        <a href="#" class="sidebar__link">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+                            <span class="link-text">LIVE Control</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item" data-section="viewers-section">
+                        <a href="#" class="sidebar__link">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            <span class="link-text">Viewers</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item" data-section="comments-section">
+                        <a href="#" class="sidebar__link">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            <span class="link-text">Comments</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item" data-section="events-section">
+                        <a href="#" class="sidebar__link">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
+                            <span class="link-text">Events</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar__item">
+                <span class="sidebar__link sidebar__link--header">
+                    <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    <span class="link-text">Automation</span>
+                </span>
+                <ul class="sidebar__submenu">
+                    <li class="sidebar__item" data-section="greetings-section">
+                        <a href="#" class="sidebar__link">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>
+                            <span class="link-text">Greetings</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item" data-section="commands-section">
+                        <a href="#" class="sidebar__link">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                            <span class="link-text">Commands</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item" data-section="automations-section">
+                        <a href="#" class="sidebar__link">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                            <span class="link-text">Automations</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item" data-section="announcements-section">
+                        <a href="#" class="sidebar__link">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>
+                            <span class="link-text">Announcements</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item" data-section="moderation-section">
+                        <a href="#" class="sidebar__link">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            <span class="link-text">Moderation</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar__item">
+                <span class="sidebar__link sidebar__link--header">
+                    <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                    <span class="link-text">Management</span>
+                </span>
+                <ul class="sidebar__submenu">
+                    <li class="sidebar__item" data-section="tasks-section">
+                        <a href="#" class="sidebar__link">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                            <span class="link-text">Tasks</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item" data-section="analytics-section">
+                        <a href="#" class="sidebar__link">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+                            <span class="link-text">Analytics</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar__item">
+                <span class="sidebar__link sidebar__link--header">
+                    <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    <span class="link-text">System</span>
+                </span>
+                <ul class="sidebar__submenu">
+                    <li class="sidebar__item" data-section="notifications-section">
+                        <a href="#" class="sidebar__link">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                            <span class="link-text">Notifications</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__item" data-section="settings-section">
+                        <a href="#" class="sidebar__link">
+                            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                            <span class="link-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+
+    <div class="sidebar__footer">
+        <a href="#" class="sidebar__link sidebar__link--logout" id="logout-btn">
+            <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <span class="link-text">Logout</span>
+        </a>
+    </div>
+</aside>
+
+        <!-- Sidebar Overlay for Mobile -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            
+            <!-- Navbar -->
+            <header class="navbar">
+                <div class="navbar__left">
+                    <button class="navbar__toggle" id="navbar-toggle" aria-label="Toggle sidebar">
+                        <span class="icon">&#9776;</span>
+                    </button>
+                    <div class="navbar__search">
+                        <input type="text" class="navbar__search-input" placeholder="Search...">
+                    </div>
+                </div>
+                <div class="navbar__right">
+                    <div class="navbar__balance" id="live-status-indicator">
+                        <span class="status-dot status-dot--success"></span>
+                        <span class="text-sm">Disconnected</span>
+                    </div>
+                    <button class="navbar__icon-btn" id="theme-toggle" aria-label="Toggle theme">
+                        <span class="icon">&#9681;</span>
+                    </button>
+                    <button class="navbar__icon-btn" data-section="notifications-section" aria-label="Notifications">
+                        <span class="icon">&#9737;</span>
+                    </button>
+                    <div class="navbar__profile">
+                        <div class="avatar">U</div>
+                        <div class="profile__info">
+                            <span class="profile__name">User Name</span>
+                            <span class="profile__role">User</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <main class="content-area">
+                
+             <!-- DASHBOARD SECTION -->
+<section id="dashboard-section" class="dashboard-section">
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">Dashboard Overview</h1>
+            <div class="breadcrumbs">
+                <span>Home</span> / <span>Dashboard</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="dashboard-row">
+        <!-- LIVE Status Card -->
+        <div class="stat-card">
+            <div class="stat-card__top">
+                <span class="stat-card__label">LIVE Status</span>
+                <span class="stat-card__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                    </svg>
+                </span>
+            </div>
+            <div class="stat-card__value" id="stat-live-status">Offline</div>
+            <div class="stat-card__trend text-warning">Disconnected</div>
+        </div>
+        
+        <!-- Current Viewers Card -->
+        <div class="stat-card">
+            <div class="stat-card__top">
+                <span class="stat-card__label">Current Viewers</span>
+                <span class="stat-card__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </span>
+            </div>
+            <div class="stat-card__value" id="stat-viewers">0</div>
+            <div class="stat-card__trend text-success">+0% today</div>
+        </div>
+        
+        <!-- Comments Card -->
+        <div class="stat-card">
+            <div class="stat-card__top">
+                <span class="stat-card__label">Comments</span>
+                <span class="stat-card__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </span>
+            </div>
+            <div class="stat-card__value" id="stat-comments">0</div>
+            <div class="stat-card__trend text-info">Active</div>
+        </div>
+        
+        <!-- Active Automations Card -->
+        <div class="stat-card">
+            <div class="stat-card__top">
+                <span class="stat-card__label">Active Automations</span>
+                <span class="stat-card__icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                </span>
+            </div>
+            <div class="stat-card__value" id="stat-automations">0</div>
+            <div class="stat-card__trend text-secondary">Running</div>
+        </div>
+    </div>
+    
+    <div class="dashboard-row">
+        <div class="card" style="flex: 2;">
+            <div class="card__header">
+                <h3 class="card__title">Recent Activity</h3>
+            </div>
+            <div id="recent-activity-feed" class="card__body">
+                <p class="text-muted">No recent activity. Start a LIVE session.</p>
+            </div>
+        </div>
+        <div class="card" style="flex: 1;">
+            <div class="card__header">
+                <h3 class="card__title">Tasks Status</h3>
+            </div>
+            <div class="card__body">
+                <div class="stat-card__value">0 Queued</div>
+                <div class="badge badge--success">0 Completed</div>
+                <div class="badge badge--danger">0 Failed</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+              <!-- LIVE CONTROL SECTION -->
+<section id="live-section" class="dashboard-section" hidden>
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; margin-bottom: 4px;"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                LIVE Control
+            </h1>
+            <div class="breadcrumbs"><span>Home</span> / <span>LIVE</span> / <span>Control</span></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card__header">
+            <h3 class="card__title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; margin-bottom: 4px;"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+                Connection Management
+            </h3>
+            <div class="card__actions">
+                <span class="badge badge--warning" id="live-conn-status">Disconnected</span>
+            </div>
+        </div>
+        <div class="card__body">
+            <div class="form-card">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">TikTok Username</label>
+                        <input type="text" class="form-input" placeholder="Connected account" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Session ID</label>
+                        <input type="text" class="form-input" placeholder="N/A" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Connection Duration</label>
+                        <input type="text" class="form-input" placeholder="00:00:00" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Event</label>
+                        <input type="text" class="form-input" placeholder="N/A" disabled>
+                    </div>
+                </div>
+                <div class="form-group--full" style="margin-top: 1rem; display: flex; gap: 0.5rem; align-items: center;">
+                    <button class="btn btn--primary" id="btn-connect-live">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        <span class="spinner spinner-sm" hidden></span> Connect
+                    </button>
+                    <button class="btn btn--danger" id="btn-disconnect-live" disabled>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>
+                        Disconnect
+                    </button>
+                    <button class="btn btn--outline" id="btn-reconnect-live" disabled>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                        Reconnect
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- VIEWERS SECTION -->
+<section id="viewers-section" class="dashboard-section" hidden>
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; margin-bottom: 4px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                Viewers
+            </h1>
+            <div class="breadcrumbs"><span>Home</span> / <span>LIVE</span> / <span>Viewers</span></div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card__header">
+            <h3 class="card__title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; margin-bottom: 4px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                Viewer List
+            </h3>
+        </div>
+        <div class="table-toolbar">
+            <div class="table-filters">
+                <input type="text" class="form-input form-input--sm" placeholder="Search viewers...">
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Status</th>
+                        <th>First Seen</th>
+                        <th>Last Seen</th>
+                        <th>Comments</th>
+                        <th>Events</th>
+                        <th>Labels</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="viewers-table-body">
+                    <tr><td colspan="8" class="text-center text-muted">No viewers yet. Start a LIVE to see viewers here.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+            <!-- COMMENTS SECTION -->
+<section id="comments-section" class="dashboard-section" hidden>
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; margin-bottom: 4px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Comments
+            </h1>
+            <div class="breadcrumbs"><span>Home</span> / <span>LIVE</span> / <span>Comments</span></div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card__header">
+            <h3 class="card__title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; margin-bottom: 4px;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                Real-time Comment Feed
+            </h3>
+        </div>
+        <div class="table-toolbar">
+            <div class="table-filters">
+                <input type="text" class="form-input form-input--sm" placeholder="Filter comments...">
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Comment</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="comments-table-body">
+                    <tr><td colspan="4" class="text-center text-muted">No comments yet.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- EVENTS SECTION -->
+<section id="events-section" class="dashboard-section" hidden>
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; margin-bottom: 4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                Events
+            </h1>
+            <div class="breadcrumbs"><span>Home</span> / <span>LIVE</span> / <span>Events</span></div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card__header">
+            <h3 class="card__title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; margin-bottom: 4px;"><circle cx="12" cy="12" r="2"></circle><path d="M16.24 7.76a6 6 0 0 1 0 8.49"></path><path d="M7.76 16.24a6 6 0 0 1 0-8.49"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M4.93 19.07a10 10 0 0 1 0-14.14"></path></svg>
+                Supported LIVE Events
+            </h3>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Event Type</th>
+                        <th>Username</th>
+                        <th>Time</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody id="events-table-body">
+                    <tr><td colspan="4" class="text-center text-muted">No events recorded.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+           <!-- GREETINGS SECTION -->
+<section id="greetings-section" class="dashboard-section" hidden>
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; margin-bottom: 4px;"><path d="M3 11l18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>
+                Greetings
+            </h1>
+            <div class="breadcrumbs"><span>Home</span> / <span>Automation</span> / <span>Greetings</span></div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card__header">
+            <h3 class="card__title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; margin-bottom: 4px;"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                Greeting Configuration
+            </h3>
+        </div>
+        <div class="card__body">
+            <form class="form-card" id="greetings-form">
+                <div class="form-group">
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="enable-greetings">
+                        <span class="checkbox-custom"></span>
+                        <label for="enable-greetings" class="checkbox-label">Enable Greetings Automation</label>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">New Viewer Greeting</label>
+                        <textarea class="form-textarea" placeholder="Welcome {username} to the LIVE! 👋"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Returning Viewer Greeting</label>
+                        <textarea class="form-textarea" placeholder="Welcome back {username}! Great to see you again."></textarea>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Cooldown (seconds)</label>
+                        <input type="number" class="form-input" placeholder="30">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Max Greetings per Session</label>
+                        <input type="number" class="form-input" placeholder="100">
+                    </div>
+                </div>
+                <div class="form-group--full">
+                    <label class="form-label">Ignore List (comma separated)</label>
+                    <input type="text" class="form-input" placeholder="user1, user2">
+                </div>
+                <div class="form-group--full" style="display: flex; gap: 0.5rem;">
+                    <button type="button" class="btn btn--outline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        Preview Message
+                    </button>
+                    <button type="submit" class="btn btn--primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                        Save Settings
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- COMMANDS SECTION -->
+<section id="commands-section" class="dashboard-section" hidden>
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; margin-bottom: 4px;"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+                Commands
+            </h1>
+            <div class="breadcrumbs"><span>Home</span> / <span>Automation</span> / <span>Commands</span></div>
+        </div>
+        <button class="btn btn--primary" id="open-add-command-modal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Add Command
+        </button>
+    </div>
+    <div class="card">
+        <div class="card__header">
+            <h3 class="card__title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; margin-bottom: 4px;"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                Configured Commands
+            </h3>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>Response</th>
+                        <th>Permission</th>
+                        <th>Cooldown</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="commands-table-body">
+                    <tr><td colspan="6" class="text-center text-muted">No commands created yet.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- AUTOMATIONS SECTION -->
+<section id="automations-section" class="dashboard-section" hidden>
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; margin-bottom: 4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                Automations
+            </h1>
+            <div class="breadcrumbs"><span>Home</span> / <span>Automation</span> / <span>Automations</span></div>
+        </div>
+        <button class="btn btn--primary" id="open-add-automation-modal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Create Automation
+        </button>
+    </div>
+    <div class="card">
+        <div class="card__header">
+            <h3 class="card__title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; margin-bottom: 4px;"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                Automation Rules
+            </h3>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Trigger (WHEN)</th>
+                        <th>Condition (IF)</th>
+                        <th>Action (THEN)</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="automations-table-body">
+                    <tr><td colspan="6" class="text-center text-muted">No automations configured.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+              <!-- ANNOUNCEMENTS SECTION -->
+<section id="announcements-section" class="dashboard-section" hidden>
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; margin-bottom: 4px;"><path d="M3 11l18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>
+                Announcements
+            </h1>
+            <div class="breadcrumbs"><span>Home</span> / <span>Automation</span> / <span>Announcements</span></div>
+        </div>
+        <button class="btn btn--primary" id="open-add-announcement-modal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Create Announcement
+        </button>
+    </div>
+    <div class="card">
+        <div class="card__header">
+            <h3 class="card__title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; margin-bottom: 4px;"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                Active Announcements
+            </h3>
+        </div>
+        <div class="announcements-scroller-container">
+            <div class="announcements-scroller-header">
+                <span>Scheduled Messages</span>
+            </div>
+            <div id="announcements-list" class="card__body">
+                <p class="text-muted">No announcements created yet.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MODERATION SECTION -->
+<section id="moderation-section" class="dashboard-section" hidden>
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; margin-bottom: 4px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                Moderation
+            </h1>
+            <div class="breadcrumbs"><span>Home</span> / <span>Automation</span> / <span>Moderation</span></div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card__header">
+            <h3 class="card__title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; margin-bottom: 4px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+                Moderation Rules
+            </h3>
+        </div>
+        <div class="card__body">
+            <form class="form-card">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="enable-mod" checked>
+                            <span class="checkbox-custom"></span>
+                            <label for="enable-mod" class="checkbox-label">Enable Auto-Moderation</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="detect-spam">
+                            <span class="checkbox-custom"></span>
+                            <label for="detect-spam" class="checkbox-label">Enable Spam Detection</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group--full">
+                    <label class="form-label">Blocked Keywords (comma separated)</label>
+                    <textarea class="form-textarea" placeholder="spam, scam, follow me"></textarea>
+                </div>
+                <div class="form-group--full">
+                    <button type="submit" class="btn btn--primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                        Save Moderation
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- TASKS SECTION -->
+<section id="tasks-section" class="dashboard-section" hidden>
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; margin-bottom: 4px;"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                Tasks
+            </h1>
+            <div class="breadcrumbs"><span>Home</span> / <span>Management</span> / <span>Tasks</span></div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card__header">
+            <h3 class="card__title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; margin-bottom: 4px;"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                Task Queue
+            </h3>
+        </div>
+        <div class="table-toolbar">
+            <div class="table-filters">
+                <select class="form-select form-select--sm">
+                    <option>All Statuses</option>
+                    <option>Queued</option>
+                    <option>Running</option>
+                    <option>Failed</option>
+                </select>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Task ID</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Created</th>
+                        <th>Retry Count</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tasks-table-body">
+                    <tr><td colspan="6" class="text-center text-muted">No tasks found.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ANALYTICS SECTION -->
+<section id="analytics-section" class="dashboard-section" hidden>
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; margin-bottom: 4px;"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+                Analytics
+            </h1>
+            <div class="breadcrumbs"><span>Home</span> / <span>Management</span> / <span>Analytics</span></div>
+        </div>
+    </div>
+    
+    <div class="dashboard-row">
+        <div class="stat-card">
+            <div class="stat-card__top"><span class="stat-card__label">Total Viewers</span></div>
+            <div class="stat-card__value">0</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-card__top"><span class="stat-card__label">Total Comments</span></div>
+            <div class="stat-card__value">0</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-card__top"><span class="stat-card__label">Automations Executed</span></div>
+            <div class="stat-card__value">0</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card__header">
+            <h3 class="card__title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; margin-bottom: 4px;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                Viewer Activity
+            </h3>
+        </div>
+        <div class="card__body">
+            <div class="chart-placeholder">
+                <div class="chart-bar" style="height: 40%;"></div>
+                <div class="chart-bar" style="height: 70%;"></div>
+                <div class="chart-bar" style="height: 50%;"></div>
+                <div class="chart-bar" style="height: 90%;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NOTIFICATIONS SECTION -->
+<section id="notifications-section" class="dashboard-section" hidden>
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; margin-bottom: 4px;"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                Notifications
+            </h1>
+            <div class="breadcrumbs"><span>Home</span> / <span>System</span> / <span>Notifications</span></div>
+        </div>
+        <button class="btn btn--outline btn--sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Mark all as read
+        </button>
+    </div>
+    <div class="card">
+        <div class="card__header">
+            <h3 class="card__title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; margin-bottom: 4px;"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                System Notifications
+            </h3>
+        </div>
+        <div class="card__body" id="system-notifications-list">
+            <div class="text-muted">No notifications.</div>
+        </div>
+    </div>
+</section>
+
+<!-- SETTINGS SECTION -->
+<section id="settings-section" class="dashboard-section" hidden>
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; margin-bottom: 4px;"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                Settings
+            </h1>
+            <div class="breadcrumbs"><span>Home</span> / <span>System</span> / <span>Settings</span></div>
+        </div>
+    </div>
+    
+    <div class="dashboard-row">
+        <div class="card">
+            <div class="card__header">
+                <h3 class="card__title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; margin-bottom: 4px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    Profile
+                </h3>
+            </div>
+            <div class="card__body">
+                <form class="form-card">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" value="User Name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" value="user@example.com" disabled>
+                    </div>
+                    <button type="submit" class="btn btn--primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: middle;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                        Save Profile
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card__header">
+                <h3 class="card__title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; margin-bottom: 4px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a10 10 0 0 0 0 20z" fill="currentColor"></path></svg>
+                    Appearance
+                </h3>
+            </div>
+            <div class="card__body">
+                <form class="form-card">
+                    <div class="form-group">
+                        <label class="form-label">Theme Preference</label>
+                        <select class="form-select" id="theme-select">
+                            <option value="dark">Dark Theme</option>
+                            <option value="light">Light Theme</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Generic Modal Template -->
+    <div class="modal-overlay" id="generic-modal" hidden>
+        <div class="modal">
+            <div class="modal__header">
+                <h3 class="modal__title" id="generic-modal-title">Modal Title</h3>
+                <button class="btn-icon btn-icon--outline close-modal-btn" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal__body" id="generic-modal-body">
+                <!-- Content injected by JS -->
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--outline close-modal-btn">Cancel</button>
+                <button class="btn btn--primary" id="generic-modal-save">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Script -->
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
